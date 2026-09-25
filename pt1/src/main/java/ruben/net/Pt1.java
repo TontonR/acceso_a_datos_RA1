@@ -12,7 +12,7 @@ import java.util.Map;
 
 /**
  *
- * @author usuari-tarda
+ * @author ruben
  */
 public class Pt1 {
     
