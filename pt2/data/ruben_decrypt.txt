@@ -1,0 +1,19 @@
+Linus Torvalds: Pilares del Software Libre y de Código Abierto
+Introducción
+
+Linus Benedict Torvalds (Helsinki, Finlandia, 1969) es un ingeniero de software finlandés-estadounidense y una de las figuras más influyentes de la historia de la informática moderna. Formado en Ciencias de la Computación en la Universidad de Helsinki, es el creador del núcleo Linux y del sistema de control de versiones Git, dos tecnologías fundamentales que sustentan la infraestructura digital actual. Su modelo de desarrollo colaborativo, abierto y meritocrático ha redefinido la forma de construir y mantener software a escala global.
+Desarrollo
+
+Los principales aportes tecnológicos de Torvalds, verificables y ordenados cronológicamente, son:
+
+    (1991) Creación del núcleo Linux: El 25 de agosto anuncia en el grupo de noticias comp.os.minix el desarrollo de un núcleo libre de tipo Unix para procesadores Intel 386, y el 17 de septiembre libera la versión 0.01. Este núcleo monolítico, gratuito y portable, permitió construir sistemas operativos completos (distribuciones GNU/Linux) y rompió el dominio del software propietario.
+
+    (1992) Adopción de la licencia GNU GPL v2: Al relicenciar Linux bajo la Licencia Pública General GNU v2, Torvalds garantiza las cuatro libertades del software libre: uso, estudio, modificación y redistribución. Esta decisión jurídica y técnica consolida el código abierto como modelo legal y posibilita la colaboración masiva y descentralizada de miles de desarrolladores.
+
+    (1994) Publicación de Linux 1.0: El 14 de marzo se libera Linux 1.0.0, la primera versión estable con 176.250 líneas de código. Incorpora soporte para redes TCP/IP, sistema de archivos ext2 y compatibilidad con X Window System. Este hito demuestra su estabilidad en entornos de producción e impulsa su adopción como infraestructura crítica en servidores, universidades y supercomputación.
+
+    (2005) Creación del sistema de control de versiones Git: En abril, tras la retirada de la licencia gratuita de BitKeeper para el desarrollo del kernel, Torvalds diseña Git, un sistema distribuido de control de versiones. Su arquitectura descentralizada, su velocidad, su gestión eficiente de ramificaciones y su integridad mediante funciones hash SHA-1 revolucionan la ingeniería de software. Hoy es el estándar mundial y base de plataformas como GitHub y GitLab.
+
+Conclusión
+
+La importancia de Linus Torvalds trasciende sus dos creaciones. Demostró que el desarrollo abierto y colaborativo puede producir software más robusto, seguro y escalable que el modelo propietario. Linux sustenta más del 90% de los servidores de Internet, las 500 supercomputadoras más potentes, el sistema Android y la computación en la nube, mientras que Git sustenta el método con el que se construye todo ese software. Su legado es una infraestructura invisible pero omnipresente que ha democratizado la innovación y ha establecido los pilares del ecosistema digital contemporáneo.

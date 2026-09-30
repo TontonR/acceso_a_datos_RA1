@@ -20,20 +20,20 @@ import java.util.Scanner;
 public class Pt1 {
 
     public static void main(String[] args) {
-        File file = new File("data/ruben.txt");
         Scanner sc = new Scanner(System.in);
         while (true) {
             System.out.print("--MENU--\n\n 1. Xifrar fitxer\n 2. Desxifrar fitxer\n 3. Sortir");
             switch (sc.nextInt()) {
                 case 1:
                     try {
-                        String path = "";
+                        sc.nextLine();
                         System.out.println("Escriu la ruta del fitxer a encriptar:");
-                        origin_path = sc.nextLine();
-                        System.out.println("Ruta elegida: "+origin_path);
+                        String origin_path = sc.nextLine();
+                        System.out.println("Ruta elegida: " + origin_path);
                         File file = new File(origin_path);
                         System.out.println("Escriu la ruta on guardar el fitxer encriptat:");
                         String path = sc.nextLine();
+                        System.out.println("Ruta elegida: " + path);
                         System.out.println("Numero de sucesions: ");
                         int d = sc.nextInt();
                         crypt(file, d, path);
@@ -45,16 +45,17 @@ public class Pt1 {
                     break;
                 case 2:
                     try {
-                        String path = "";
+                        sc.nextLine();
                         System.out.println("Escriu la ruta del fitxer a desencriptar:");
-                        origin_path = sc.nextLine();
-                        System.out.println("Ruta elegida: "+origin_path);
+                        String origin_path = sc.nextLine();
+                        System.out.println("Ruta elegida: " + origin_path);
                         File file = new File(origin_path);
                         System.out.println("Escriu la ruta on guardar el fitxer desencriptat:");
                         String path = sc.nextLine();
+                        System.out.println("Ruta elegida: " + path);
                         System.out.println("Numero de sucesions: ");
                         int d = sc.nextInt();
-                        crypt(file, d, path);
+                        decrypt(file, d, path);
                         System.out.println("Fitxer desencriptat correctament.");
                     } catch (Exception e) {
                         System.out.println("Error: " + e.getMessage());
@@ -80,7 +81,7 @@ public class Pt1 {
                     index += displacemenet;
                     crypt_line += (char) index;
                 }
-                pw.write(crypt_line);
+                pw.write(crypt_line + "\n");
             }
             pw.flush();
         } catch (FileNotFoundException e) {
@@ -93,17 +94,22 @@ public class Pt1 {
     public static void decrypt(File f, int displacement, String path) {
         try (BufferedReader br = new BufferedReader(new FileReader(f)); BufferedWriter bw = new BufferedWriter(new FileWriter(path)); PrintWriter pw = new PrintWriter(bw)) {
             String line;
-            while((line = br.readLine()) != null) {
-                String displaced_line;
-                for (chac c : reverse_line.toCharArray()) {
+            while ((line = br.readLine()) != null) {
+                String displaced_line = "";
+                for (char c : line.toCharArray()) {
                     int index = (int) c;
                     index -= displacement;
-                    displaced_line = (char) index;
+                    displaced_line += (char) index;
                 }
                 StringBuilder sb = new StringBuilder(displaced_line);
-                String decrypt_line = sb.reverse.toString();              
+                String decrypt_line = sb.reverse().toString();
+                pw.write(decrypt_line + "");
             }
             pw.flush();
+        } catch (FileNotFoundException e) {
+            System.out.println("Fitxer no trobat: " + e.getMessage());
+        } catch (IOException e) {
+            System.out.println("Error d' entrada/sortida: " + e.getMessage());
         }
     }
 }
