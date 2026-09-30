@@ -26,11 +26,39 @@ public class Pt1 {
             System.out.print("--MENU--\n\n 1. Xifrar fitxer\n 2. Desxifrar fitxer\n 3. Sortir");
             switch (sc.nextInt()) {
                 case 1:
-                    String path = "";
-                    System.out.println("Selecciona la ubicació del fitxer a encriptar");
-                    path = sc.nextLine();
+                    try {
+                        String path = "";
+                        System.out.println("Escriu la ruta del fitxer a encriptar:");
+                        origin_path = sc.nextLine();
+                        System.out.println("Ruta elegida: "+origin_path);
+                        File file = new File(origin_path);
+                        System.out.println("Escriu la ruta on guardar el fitxer encriptat:");
+                        String path = sc.nextLine();
+                        System.out.println("Numero de sucesions: ");
+                        int d = sc.nextInt();
+                        crypt(file, d, path);
+                        System.out.println("Fitxer encriptat correctament.");
+
+                    } catch (Exception e) {
+                        System.out.println("Error: " + e.getMessage());
+                    }
                     break;
                 case 2:
+                    try {
+                        String path = "";
+                        System.out.println("Escriu la ruta del fitxer a desencriptar:");
+                        origin_path = sc.nextLine();
+                        System.out.println("Ruta elegida: "+origin_path);
+                        File file = new File(origin_path);
+                        System.out.println("Escriu la ruta on guardar el fitxer desencriptat:");
+                        String path = sc.nextLine();
+                        System.out.println("Numero de sucesions: ");
+                        int d = sc.nextInt();
+                        crypt(file, d, path);
+                        System.out.println("Fitxer desencriptat correctament.");
+                    } catch (Exception e) {
+                        System.out.println("Error: " + e.getMessage());
+                    }
                     break;
                 case 3:
                     return;
@@ -40,7 +68,7 @@ public class Pt1 {
         }
     }
 
-    public static String crypt(File f, int displacemenet, String path) {
+    public static void crypt(File f, int displacemenet, String path) {
         try (BufferedReader br = new BufferedReader(new FileReader(f)); BufferedWriter bw = new BufferedWriter(new FileWriter(path)); PrintWriter pw = new PrintWriter(bw)) {
             String line;
             while ((line = br.readLine()) != null) {
@@ -60,6 +88,22 @@ public class Pt1 {
         } catch (IOException e) {
             System.out.println("Error d' entrada/sortida: " + e.getMessage());
         }
-        return null;
+    }
+
+    public static void decrypt(File f, int displacement, String path) {
+        try (BufferedReader br = new BufferedReader(new FileReader(f)); BufferedWriter bw = new BufferedWriter(new FileWriter(path)); PrintWriter pw = new PrintWriter(bw)) {
+            String line;
+            while((line = br.readLine()) != null) {
+                String displaced_line;
+                for (chac c : reverse_line.toCharArray()) {
+                    int index = (int) c;
+                    index -= displacement;
+                    displaced_line = (char) index;
+                }
+                StringBuilder sb = new StringBuilder(displaced_line);
+                String decrypt_line = sb.reverse.toString();              
+            }
+            pw.flush();
+        }
     }
 }
