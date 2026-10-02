@@ -24,7 +24,7 @@ public class Pt1 {
         while (true) {
             System.out.print("--MENU--\n\n 1. Xifrar fitxer\n 2. Desxifrar fitxer\n 3. Sortir");
             switch (sc.nextInt()) {
-                case 1:
+                case 1 -> {
                     try {
                         sc.nextLine();
                         System.out.println("Escriu la ruta del fitxer a encriptar:");
@@ -42,8 +42,8 @@ public class Pt1 {
                     } catch (Exception e) {
                         System.out.println("Error: " + e.getMessage());
                     }
-                    break;
-                case 2:
+                }
+                case 2 -> {
                     try {
                         sc.nextLine();
                         System.out.println("Escriu la ruta del fitxer a desencriptar:");
@@ -60,10 +60,11 @@ public class Pt1 {
                     } catch (Exception e) {
                         System.out.println("Error: " + e.getMessage());
                     }
-                    break;
-                case 3:
+                }
+                case 3 -> {
                     return;
-                default:
+                }
+                default ->
                     throw new AssertionError();
             }
         }
